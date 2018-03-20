@@ -10,6 +10,10 @@ from include.LinearRegression import LinearRegression
 
 # Metodo principal del programa
 def main ():
+    """
+    Funcion de test para el algoritmo de progresion lineal
+    """
+    
     x = [] # valores para x
     t = [] # valores para t
     
@@ -35,6 +39,6 @@ def main ():
     # Mostramos el resultado
     print "Resultado: "+str(xi)+" = "+str(res)
     
-# Indicamos cual es el metodo principal
+# Indicamos cual es el metodo de entrada al programa
 if __name__ == "__main__":
     main()

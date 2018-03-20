@@ -10,16 +10,24 @@ class LinearRegression:
     def __init__ (self, x, t):
         """
         Constructor de la clase
+        
+        Parametros:
+            
+            x -- valores del eje Y 
+            t -- valores del eje X
         """
         
-        self.x = x # valores de X
-        self.t = t # valores de t
+        self.x = x # valores de X (valores)
+        self.t = t # valores de t (tiempo)
         self.n = len(x) # valor de n
     
     
-    def pending (self):
+    def b (self):
         """
-        Obtenemos el valor de la pendiente
+        Se obtiene el valor de la pendiente respecto a los
+        pares ordenados utilizndo la formula:
+        
+            b = n∑xt - ∑x∑t / n∑t² - [∑t]²
         """
         
         sumxt = 0.0 # Sumatoria XiTi
@@ -42,12 +50,15 @@ class LinearRegression:
     
     def a (self):
         """
-        Obtenemos la interseccion de la recta
+        Se obtiene la interseccion de la recta utilizando la
+        formula:
+        
+            a = ∑x - b*∑t
         """
         
         sumx = 0.0 # Sumatoria Xi
         sumt = 0.0 # sumatoria ti
-        b = self.b()
+        b = self.b() # Pendiente
         
         # Obtenemos las sumatorias
         for i in range(0, self.n):
@@ -62,12 +73,20 @@ class LinearRegression:
     
     def prediction (self, t):
         """
-        Obtenmos la prediccion
+        Se obtiene la prediccion del valor dado utilizando la
+        formula:
+        
+            xi = a + bt
+        
+        parametros:
+        
+            t -- valor a predecir
         """
         
-        a = self.a()
-        b = self.b()
+        a = self.a() # interseccion de la recta
+        b = self.b() # pendiente
         
+        # predecimos el valor solicitado
         xi = a + (b*t)
         
         return xi
